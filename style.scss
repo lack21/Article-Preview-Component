@@ -1,0 +1,235 @@
+// lear
+// Article Preview Component
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+// Colors
+$veryDarkGrayishBlue: hsl(217, 19%, 35%);
+$desaturatedDarkBlue: hsl(214, 17%, 51%);
+$grayishBlue: hsl(212, 23%, 69%);
+$lightGrayishBlue: hsl(210, 46%, 95%);
+$white: hsl(0, 0%, 100%);
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: $lightGrayishBlue;
+}
+
+img {
+  display: block;
+}
+
+// Main Content
+.main {
+  display: flex;
+  width: min(775px, 90vw);
+
+  .image {
+    min-width: 300px;
+    background-image: url(images/drawers.jpg);
+    background-size: cover;
+    border-radius: 0.75rem 0 0 0.75rem;
+    -webkit-border-radius: 0.75rem 0 0 0.75rem;
+    -moz-border-radius: 0.75rem 0 0 0.75rem;
+    -ms-border-radius: 0.75rem 0 0 0.75rem;
+    -o-border-radius: 0.75rem 0 0 0.75rem;
+  }
+
+  .content {
+    background-color: $white;
+    border-radius: 0 0.75rem 0.75rem 0;
+    -webkit-border-radius: 0 0.75rem 0.75rem 0;
+    -moz-border-radius: 0 0.75rem 0.75rem 0;
+    -ms-border-radius: 0 0.75rem 0.75rem 0;
+    -o-border-radius: 0 0.75rem 0.75rem 0;
+    padding: 2.25rem;
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $veryDarkGrayishBlue;
+    }
+
+    .text {
+      font-size: 0.9rem;
+      padding: 1rem 0 1.5rem;
+      color: $desaturatedDarkBlue;
+      line-height: 1.3rem;
+      font-weight: 500;
+    }
+
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+        }
+
+        .info-text {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+
+          .name {
+            font-size: 1rem;
+            color: $veryDarkGrayishBlue;
+          }
+
+          .date {
+            font-size: 0.9rem;
+            color: $desaturatedDarkBlue;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .share-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background-color: $lightGrayishBlue;
+        position: relative;
+        cursor: pointer;
+
+        &.active {
+          background-color: $veryDarkGrayishBlue;
+
+          &::after {
+            filter: brightness(0) invert(1);
+            -webkit-filter: brightness(0) invert(1);
+          }
+
+          .share-box {
+            display: flex;
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 16px;
+          height: 14px;
+          background-image: url(images/icon-share.svg);
+          background-repeat: no-repeat;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+        }
+
+        .share-box {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -5rem;
+          display: none;
+          align-items: center;
+          gap: 1rem;
+          background-color: $veryDarkGrayishBlue;
+          padding: 1rem 2rem;
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          border-radius: 0.5rem;
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          -ms-border-radius: 0.5rem;
+          -o-border-radius: 0.5rem;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: calc(50% - 10px);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $veryDarkGrayishBlue;
+          }
+
+          .text-name {
+            font-size: 0.725rem;
+            font-weight: 500;
+            color: $grayishBlue;
+            letter-spacing: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// For Smaller Devices
+@media screen and (max-width: 900px) {
+  .main {
+    width: min(600px, 95vw);
+    flex-direction: column;
+
+    .image {
+      width: 100%;
+      height: min(400px, 80vw);
+      border-radius: 0.75rem 0.75rem 0 0;
+      -webkit-border-radius: 0.75rem 0.75rem 0 0;
+      -moz-border-radius: 0.75rem 0.75rem 0 0;
+      -ms-border-radius: 0.75rem 0.75rem 0 0;
+      -o-border-radius: 0.75rem 0.75rem 0 0;
+    }
+
+    .content {
+      border-radius: 0 0 0.75rem 0.75rem;
+      -webkit-border-radius: 0 0 0.75rem 0.75rem;
+      -moz-border-radius: 0 0 0.75rem 0.75rem;
+      -ms-border-radius: 0 0 0.75rem 0.75rem;
+      -o-border-radius: 0 0 0.75rem 0.75rem;
+
+      .share-box {
+        left: auto !important;
+        right: 0;
+        transform: translateX(0) !important;
+        -webkit-transform: translateX(0) !important;
+        -moz-transform: translateX(0) !important;
+        -ms-transform: translateX(0) !important;
+        -o-transform: translateX(0) !important;
+        border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+        -webkit-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+        -moz-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+        -ms-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+        -o-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+
+        &::after {
+          left: auto !important;
+          right: 0;
+          border-right: 0px !important;
+          border-left-width: 15px !important;
+        }
+      }
+    }
+  }
+}

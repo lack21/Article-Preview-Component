@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background-color: hsl(210, 46%, 95%);
+}
+
+img {
+  display: block;
+}
+
+.main {
+  display: flex;
+  width: min(775px, 90vw);
+}
+.main .image {
+  min-width: 300px;
+  background-image: url(images/drawers.jpg);
+  background-size: cover;
+  border-radius: 0.75rem 0 0 0.75rem;
+  -webkit-border-radius: 0.75rem 0 0 0.75rem;
+  -moz-border-radius: 0.75rem 0 0 0.75rem;
+  -ms-border-radius: 0.75rem 0 0 0.75rem;
+  -o-border-radius: 0.75rem 0 0 0.75rem;
+}
+.main .content {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 0 0.75rem 0.75rem 0;
+  -webkit-border-radius: 0 0.75rem 0.75rem 0;
+  -moz-border-radius: 0 0.75rem 0.75rem 0;
+  -ms-border-radius: 0 0.75rem 0.75rem 0;
+  -o-border-radius: 0 0.75rem 0.75rem 0;
+  padding: 2.25rem;
+}
+.main .content .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(217, 19%, 35%);
+}
+.main .content .text {
+  font-size: 0.9rem;
+  padding: 1rem 0 1.5rem;
+  color: hsl(214, 17%, 51%);
+  line-height: 1.3rem;
+  font-weight: 500;
+}
+.main .content .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .content .box .info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.main .content .box .info .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.main .content .box .info .info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.main .content .box .info .info-text .name {
+  font-size: 1rem;
+  color: hsl(217, 19%, 35%);
+}
+.main .content .box .info .info-text .date {
+  font-size: 0.9rem;
+  color: hsl(214, 17%, 51%);
+  font-weight: 500;
+}
+.main .content .box .share-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: hsl(210, 46%, 95%);
+  position: relative;
+  cursor: pointer;
+}
+.main .content .box .share-image.active {
+  background-color: hsl(217, 19%, 35%);
+}
+.main .content .box .share-image.active::after {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+}
+.main .content .box .share-image.active .share-box {
+  display: flex;
+}
+.main .content .box .share-image::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 14px;
+  background-image: url(images/icon-share.svg);
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.main .content .box .share-image .share-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -5rem;
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  background-color: hsl(217, 19%, 35%);
+  padding: 1rem 2rem;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+.main .content .box .share-image .share-box::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: calc(50% - 10px);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid hsl(217, 19%, 35%);
+}
+.main .content .box .share-image .share-box .text-name {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: hsl(212, 23%, 69%);
+  letter-spacing: 0.25rem;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    width: min(600px, 95vw);
+    flex-direction: column;
+  }
+  .main .image {
+    width: 100%;
+    height: min(400px, 80vw);
+    border-radius: 0.75rem 0.75rem 0 0;
+    -webkit-border-radius: 0.75rem 0.75rem 0 0;
+    -moz-border-radius: 0.75rem 0.75rem 0 0;
+    -ms-border-radius: 0.75rem 0.75rem 0 0;
+    -o-border-radius: 0.75rem 0.75rem 0 0;
+  }
+  .main .content {
+    border-radius: 0 0 0.75rem 0.75rem;
+    -webkit-border-radius: 0 0 0.75rem 0.75rem;
+    -moz-border-radius: 0 0 0.75rem 0.75rem;
+    -ms-border-radius: 0 0 0.75rem 0.75rem;
+    -o-border-radius: 0 0 0.75rem 0.75rem;
+  }
+  .main .content .share-box {
+    left: auto !important;
+    right: 0;
+    transform: translateX(0) !important;
+    -webkit-transform: translateX(0) !important;
+    -moz-transform: translateX(0) !important;
+    -ms-transform: translateX(0) !important;
+    -o-transform: translateX(0) !important;
+    border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+    -webkit-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+    -moz-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+    -ms-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+    -o-border-radius: 0.75rem 0.75rem 0 0.75rem !important;
+  }
+  .main .content .share-box::after {
+    left: auto !important;
+    right: 0;
+    border-right: 0px !important;
+    border-left-width: 15px !important;
+  }
+}/*# sourceMappingURL=style.css.map */
